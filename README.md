@@ -12,3 +12,11 @@ Some useful concepts that can help you achieve this functionality are:
   - [`vector.heading()`](https://processing.org/reference/PVector_heading_.html) - Gives you the angle (direction) of a vector
   - [`vector.mag()`](https://processing.org/reference/PVector_mag_.html) - Gives you the distance or magnitude of a vector
   
+### Steps:
+1. Come up with a visual plan (drawing) of how you will be coding this functionality.
+2. List the incremental development steps. See the [dodging-game](https://github.com/MrGallo/assignment-dodging-game) assignment instructions for an example.
+3. In your repository `Projects` section, create a project, call it "Incremental Development".
+4. Within the `Project`, add three columns, "To Do", "In Progress", and "Done".
+5. Place all your incremental development steps from step #2 as single "notes" in the "To Do" column.
+6. As you begin working on a step, drag it to the "In Progress", as you complete a step, move it to "Done".
+    - Any other issues or problems, add to the "To Do" column.
