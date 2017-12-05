@@ -11,6 +11,7 @@ Some useful concepts that can help you achieve this functionality are:
   - [`PVector.sub(v1, v2)`](https://processing.org/reference/PVector_sub_.html) - Get the difference between two vectors
   - [`vector.heading()`](https://processing.org/reference/PVector_heading_.html) - Gives you the angle (direction) of a vector
   - [`vector.mag()`](https://processing.org/reference/PVector_mag_.html) - Gives you the distance or magnitude of a vector
+  - [`PVector.fromAngle(radians)`](https://processing.org/reference/PVector_fromAngle_.html) - Creates a new vector moving in a particular direction specified by the degree in radians parameter.
   
 ### Steps:
 1. Come up with a visual plan (drawing) of how you will be coding this functionality.
