@@ -1,0 +1,149 @@
+# variables
+sprite_size = 40
+radius_nonplayer = sprite_size/2
+radius_repel = radius_nonplayer*3
+
+nonplayer_pos1 = PVector(300, 300)
+speed_1 = PVector(0, 0)
+
+nonplayer_pos2 = PVector(150, 150)
+speed_2 = PVector(0, 0)
+
+nonplayer_pos3 = PVector(500, 500)
+speed_3 = PVector(0, 0)
+
+
+def setup():
+    size(600, 600)
+
+
+def draw():
+    # player position and global variables
+    player_pos = PVector(mouseX, mouseY)
+    global nonplayer_pos1
+    global sprite_size
+    global radius_repel
+    global radius_nonplayer
+    global nonplayer_pos2
+    global nonplayer_pos3
+
+    background(255)
+
+    # Non Player Sprite1
+    fill(0)
+    ellipse(nonplayer_pos1.x, nonplayer_pos1.y, sprite_size, sprite_size)
+
+    # Non Player Sprite2
+    fill(255, 0, 0)
+    ellipse(nonplayer_pos2.x, nonplayer_pos2.y, sprite_size, sprite_size)
+
+    # Non Player Sprite3
+    fill(0, 255, 0)
+    ellipse(nonplayer_pos3.x, nonplayer_pos3.y, sprite_size, sprite_size)
+
+    # Player Sprite
+    fill(0, 0, 255)
+    ellipse(player_pos.x, player_pos.y, sprite_size, sprite_size)
+
+    # non player sprite 1 location relative to player sprite
+    distance_vect1 = PVector.sub(player_pos, nonplayer_pos1)
+    angle1 = distance_vect1.heading()
+    distance1 = distance_vect1.mag()
+    repel_direction1 = PVector.fromAngle(angle1)
+
+    # non player sprite 2 location relative to player sprite
+    distance_vect2 = PVector.sub(player_pos, nonplayer_pos2)
+    angle2 = distance_vect2.heading()
+    distance2 = distance_vect2.mag()
+    repel_direction2 = PVector.fromAngle(angle2)
+
+    # non player sprite 3 location relative to player sprite
+    distance_vect3 = PVector.sub(player_pos, nonplayer_pos3)
+    angle3 = distance_vect3.heading()
+    distance3 = distance_vect3.mag()
+    repel_direction3 = PVector.fromAngle(angle3)
+
+    global speed_1
+    global speed_2
+    global speed_3
+    # repel for sprite 1
+    if distance1 <= radius_repel:
+        repel_direction1.mult(-1)
+        speed_1.add(repel_direction1)
+
+    nonplayer_pos1.add(speed_1)
+
+    # boundaries non player 1
+    if nonplayer_pos1.x >= width - radius_nonplayer:
+        nonplayer_pos1.x = width - radius_nonplayer
+        speed_1.x *= -0.5
+
+    elif nonplayer_pos1.x <= 0 + radius_nonplayer:
+        nonplayer_pos1.x = 0 + radius_nonplayer
+        speed_1.x *= -0.5
+
+    elif nonplayer_pos1.y >= height - radius_nonplayer:
+        nonplayer_pos1.y = height - radius_nonplayer
+        speed_1.y *= -0.5
+
+    elif nonplayer_pos1.y <= 0 + radius_nonplayer:
+        nonplayer_pos1.y = 0 + radius_nonplayer
+        speed_1.y *= -0.5
+
+    # slowing speed for non player 1
+    speed_1 = speed_1.mult(0.97)
+
+    # repel effect non player sprite 2
+    if distance2 <= radius_repel:
+        repel_direction2.mult(-1)
+        speed_2.add(repel_direction2)
+
+    nonplayer_pos2.add(speed_2)
+
+    # boundaries non player 2
+    if nonplayer_pos2.x >= width - radius_nonplayer:
+        nonplayer_pos2.x = width - radius_nonplayer
+        speed_2.x *= -0.5
+
+    elif nonplayer_pos2.x <= 0 + radius_nonplayer:
+        nonplayer_pos2.x = 0 + radius_nonplayer
+        speed_2.x *= -0.5
+
+    elif nonplayer_pos2.y >= height - radius_nonplayer:
+        nonplayer_pos2.y = height - radius_nonplayer
+        speed_2.y *= -0.5
+
+    elif nonplayer_pos2.y <= 0 + radius_nonplayer:
+        nonplayer_pos2.y = 0 + radius_nonplayer
+        speed_2.y *= -0.5
+
+    # slowing speed for non player 2
+    speed_2 = speed_2.mult(0.97)
+
+    # repel for sprite 3
+    if distance3 <= radius_repel:
+        repel_direction3.mult(-1)
+        speed_3.add(repel_direction3)
+
+    nonplayer_pos3.add(speed_3)
+
+    # boundaries non player 3
+    if nonplayer_pos3.x >= width - radius_nonplayer:
+        nonplayer_pos3.x = width - radius_nonplayer
+        speed_3.x *= -0.5
+
+    elif nonplayer_pos3.x <= 0 + radius_nonplayer:
+        nonplayer_pos3.x = 0 + radius_nonplayer
+        speed_3.x *= -0.5
+
+    elif nonplayer_pos3.y >= height - radius_nonplayer:
+        nonplayer_pos3.y = height - radius_nonplayer
+        speed_3.y *= -0.5
+
+    elif nonplayer_pos3.y <= 0 + radius_nonplayer:
+        nonplayer_pos3.y = 0 + radius_nonplayer
+        speed_3.y *= -0.5
+
+    # slowing speed for non player 3
+    speed_3 = speed_3.mult(0.97)
+  
